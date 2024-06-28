@@ -6,12 +6,13 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyBIT80p5JZYHSJuzbdYN8lSt-dEUg0iLwk",
+  authDomain: "cerebrus-maximus.firebaseapp.com",
+  projectId: "cerebrus-maximus",
+  storageBucket: "cerebrus-maximus.appspot.com",
+  messagingSenderId: "803778313104",
+  appId: "1:803778313104:web:60ec29352469ab271b1115",
+  measurementId: "G-DVW52JJP6W"
 };
 
 // Initialize Firebase

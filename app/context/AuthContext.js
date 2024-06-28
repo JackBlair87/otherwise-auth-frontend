@@ -1,3 +1,5 @@
+"use client"
+
 import { useContext, createContext, useState, useEffect } from "react";
 import {
   signInWithPopup,
@@ -14,7 +16,15 @@ export const AuthContextProvider = ({ children }) => {
 
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider);
+    signInWithPopup(auth, provider).then((result) => {
+      if(window !== undefined) {
+        console.log(result._tokenResponse.oauthIdToken);
+        window.location.href = "otherwise://" + result._tokenResponse.oauthIdToken;
+      }
+
+    }).catch((error) => {
+      console.log(error);
+    });
   };
 
   const logOut = () => {
