@@ -19,7 +19,7 @@ export const AuthContextProvider = ({ children }) => {
     signInWithPopup(auth, provider).then((result) => {
       if(window !== undefined) {
         console.log(result._tokenResponse.oauthIdToken);
-        window.location.href = "otherwise://" + result._tokenResponse.oauthIdToken;
+        window.location.href = "second://" + result._tokenResponse.oauthIdToken;
       }
 
     }).catch((error) => {
