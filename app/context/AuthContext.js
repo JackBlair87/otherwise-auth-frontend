@@ -3,7 +3,6 @@
 import { useContext, createContext, useState, useEffect } from "react";
 import {
   signInWithPopup,
-  signInWithRedirect,
   signOut,
   onAuthStateChanged,
   GoogleAuthProvider,
@@ -17,8 +16,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
-    signInWithRedirect(auth, provider).then((result) => {
-      console.log(result);
+    signInWithPopup(auth, provider).then((result) => {
       if(window !== undefined) {
         console.log(result._tokenResponse.oauthIdToken);
         window.location.href = "second://" + result._tokenResponse.oauthIdToken;
