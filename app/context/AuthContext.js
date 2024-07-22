@@ -18,6 +18,7 @@ export const AuthContextProvider = ({ children }) => {
   const googleSignIn = () => {
     const provider = new GoogleAuthProvider();
     signInWithRedirect(auth, provider).then((result) => {
+      console.log(result);
       if(window !== undefined) {
         console.log(result._tokenResponse.oauthIdToken);
         window.location.href = "second://" + result._tokenResponse.oauthIdToken;
