@@ -23,6 +23,7 @@ export const AuthContextProvider = ({ children }) => {
         // Send token to parent window (webview)
         window.parent.postMessage({ type: 'AUTH_TOKEN', token }, '*');
       }
+      logOut();
     }).catch((error) => {
       console.log(error);
     });
