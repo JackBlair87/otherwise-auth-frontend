@@ -18,10 +18,11 @@ export const AuthContextProvider = ({ children }) => {
     const provider = new GoogleAuthProvider();
     signInWithPopup(auth, provider).then((result) => {
       if(window !== undefined) {
-        console.log(result._tokenResponse.oauthIdToken);
-        window.location.href = "second://" + result._tokenResponse.oauthIdToken;
+        const token = result._tokenResponse.oauthIdToken;
+        console.log("Token received:", token);
+        // Send token to parent window (webview)
+        window.parent.postMessage({ type: 'AUTH_TOKEN', token }, '*');
       }
-
     }).catch((error) => {
       console.log(error);
     });
