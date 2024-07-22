@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -16,6 +15,10 @@ const Navbar = () => {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    handleSignIn();
+  }, []);
 
   const handleSignOut = async () => {
     try {
@@ -53,10 +56,7 @@ const Navbar = () => {
       {loading ? null : !user ? (
         <ul className="flex">
           <li onClick={handleSignIn} className="p-2 cursor-pointer">
-            Login
-          </li>
-          <li onClick={handleSignIn} className="p-2 cursor-pointer">
-            Sign up
+            authenticate
           </li>
         </ul>
       ) : (
